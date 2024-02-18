@@ -291,14 +291,14 @@ class func
 
 	float fX(float x)
 	{
-		//A very simple normal function 2x^3
-		//will be a very quickly ascending function line
-		return 2 * pow(x, 3);
+		//A very simple normal function x^2 - 2
+		//will be a upside down arch
+		return pow(x, 2) - 2;
 	}
 	float dfx(float x)
 	{
 		//the derived function, 6x^2
-		return 6 * pow(x, 2);
+		return 2 * x;
 	}
 	std::vector<Vertex> getVertices(float min, float max, float step, bool useZ)
 	{
@@ -676,7 +676,7 @@ int main()
 	//Uncomment to run the code, which has to be done at least once
 	//to create the txt file
 	//--------------------------------
-	//auto f = func();
+	auto f = func();
 	//auto f = vertexFunc();
 	//auto f = twoVarFunc(100, .1f);
 
@@ -685,7 +685,7 @@ int main()
 	//Just uncomment any of the functions below to run them
 	//auto f = drawFromFile("function_output.txt", GL_LINE_STRIP, false);
 	//auto f = drawFromFile("VertexFunc_outp.txt", GL_LINE_STRIP, false);
-	auto f = drawFromFile("TwoVariable_outp.txt", GL_TRIANGLES, true);
+	//auto f = drawFromFile("TwoVariable_outp.txt", GL_TRIANGLES, true);
     //--------------------------------
 
 	f.initDraw();
@@ -704,7 +704,7 @@ int main()
 		process_direction(deltaTime);
 		//               Render
 		//            R     G     B
-		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 	
 		shader.use();
